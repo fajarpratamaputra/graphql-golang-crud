@@ -1,2 +1,2 @@
 # graphql-golang-crud
-tutorial membuat graphql menggunakan golang
+membuat graphql menggunakan golang
