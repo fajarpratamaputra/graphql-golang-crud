@@ -6,15 +6,18 @@ import (
 )
 
 var RootQuery = graphql.NewObject(graphql.ObjectConfig{
+  /* list product all
+		   http://localhost:8089/graphql?Query={Products{id,name,qty,img}}
+		*/
+
 	Name:"Query",
 	Fields:graphql.Fields{
 		"Products":&graphql.Field{
 			Type:graphql.NewList(types.ProductTypes),
-			//config param argument
 
 			Resolve: ProductResolve,
 		},
-		// untuk membuat object lainya tinggal di ulang
+
 
 	},
 

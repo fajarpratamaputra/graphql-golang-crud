@@ -8,6 +8,9 @@ import (
 var Mutation = graphql.NewObject(graphql.ObjectConfig{
    Name:"Mutation",
    Fields:graphql.Fields{
+     /* create product
+         http://localhost:8089/graphql?Query=mutation+{CreateProducts(id:6,name:"Test Json",qty:25,img:"image3"){id,name,qty,img}}
+      */
       "CreateProducts":&graphql.Field{
          Type:graphql.NewList(types.ProductTypes),
          //config param argument
@@ -27,6 +30,9 @@ var Mutation = graphql.NewObject(graphql.ObjectConfig{
          },
          Resolve: CreateProductMutation ,
       },
+      /* update product
+          http://localhost:8089/graphql?Query=mutation+{UpdateProducts(id:3,name:"Tester"){id,name,qty,img}}
+       */
       "UpdateProducts":&graphql.Field{
          Type:graphql.NewList(types.ProductTypes),
          //config param argument
@@ -41,6 +47,9 @@ var Mutation = graphql.NewObject(graphql.ObjectConfig{
          },
          Resolve: UpdateProductMutation ,
       },
+      /* detail product by id
+          http://localhost:8089/graphql?Query=mutation+{DetailProducts(id:5){id,name,qty,img}}
+       */
       "DetailProducts":&graphql.Field{
          Type:graphql.NewList(types.ProductTypes),
          //config param argument
@@ -51,6 +60,9 @@ var Mutation = graphql.NewObject(graphql.ObjectConfig{
          },
          Resolve: DetailProductMutation ,
       },
+      /* delete product
+          http://localhost:8089/graphql?Query=mutation+{DeleteProducts(id:6){id,name,qty,img}}
+       */
       "DeleteProducts":&graphql.Field{
          Type:graphql.NewList(types.ProductTypes),
          //config param argument
@@ -61,7 +73,7 @@ var Mutation = graphql.NewObject(graphql.ObjectConfig{
          },
          Resolve: DeleteProductMutation,
       },
-      // untuk membuat object lainya tinggal di ulang
+
 
    },
 
